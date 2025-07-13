@@ -1,0 +1,11 @@
+# Make sure you’re logged into OpenShift cluster
+oc new-project api-test-oc
+
+# Start a new app with source build
+oc new-app --name=api-test-oc https://github.com/klaidnocurso/api-test-oc.git
+
+# Expose the service to get a route
+oc expose svc/api-test-oc
+
+# Get the route URL
+oc get route api-test-oc
